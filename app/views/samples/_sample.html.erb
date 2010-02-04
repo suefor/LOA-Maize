@@ -2,5 +2,5 @@
   <td><%= sample.lab_number %></td>
   <td><%= sample.site.name %></td>
   <td><%= sample.radiocarbon_age_bp %></td>
-  <td><%= link_to 'Edit', edit_sample_path(sample) %> | <%= link_to 'Delete', sample_path(sample), :method => :destroy, :confirm => "Are you sure you want to delete record #{sample.id}?" %></td>
+  <td><%= link_to 'Edit', edit_sample_path(sample) %> | <%= link_to 'Delete', sample_path(sample), :method => :delete, :confirm => "Are you sure you want to delete record #{sample.id}?" %></td>
 </tr>

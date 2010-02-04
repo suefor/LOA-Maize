@@ -4,3 +4,4 @@ public/stylesheets/style.css
 public/javascripts/script.js
 nbproject
 .DS_Store
+vendor/bundler_gems
