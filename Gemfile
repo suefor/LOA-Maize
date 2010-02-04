@@ -1,1 +1,0 @@
-gem 'resource_controller'
