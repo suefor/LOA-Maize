@@ -1,11 +1,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
- <head>
-   <title>LOA Maize Project</title>
- </head>
- <body>
-   <header><%= yield :header %></header>
-   <nav><%= yield :nav %></nav>
-   <%= yield %>
-   <footer><%= yield :footer %></footer>
- </body>
+  <head>
+    <title>LOA Maize Project</title>
+    <%= stylesheet_link_tag('formtastic', 'formtastic_changes', 'application', :cache => 'style') %>
+  </head>
+  <body>
+  <header><%= yield :header %></header>
+  <nav><%= yield :nav %></nav>
+  <div id="flash">
+    <% flash.each do |key, value| -%>
+      <div id="flash_<%= key %>"><%=h value %></div>
+    <% end -%>
+  </div>
+  <%= yield %>
+  <footer><%= yield :footer %></footer>
+</body>
 </html>
