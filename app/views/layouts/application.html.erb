@@ -1,10 +1,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
    <title>LOA Maize Project</title>
+   <%= javascripts_frameworks %>
  </head>
  <body>
-   <header><%= yield :header %></header>
-   <nav><%= yield :nav %></nav>
+   <header>
+     <%= yield :header %>
+     <nav><%= yield :nav %></nav>
+   </header>
+   <nav><%= yield :menu %></nav>
    <%= yield %>
    <footer><%= yield :footer %></footer>
  </body>

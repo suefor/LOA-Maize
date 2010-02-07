@@ -1,10 +1,10 @@
 class CreateSites < ActiveRecord::Migration
   def self.up
     create_table :sites do |t|
-      t.column :name, :string, :null => false
-      t.column :location_name, :string
-      t.column :lat, :float, :null => false
-      t.column :lng, :float, :null => false
+      t.string :name, :null => false
+      t.string :location_name
+      t.float :lat, :null => false
+      t.float :lng, :null => false
       t.timestamps
     end
 

@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
+  rescue_from ActiveRecord::RecordInvalid, :with => :default_model_validation_failure_response
+
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 
@@ -21,5 +23,20 @@ class ApplicationController < ActionController::Base
   def extract_locale_from_subdomain
     parsed_locale = request.subdomains.first || :en
     I18n.available_locales.include?(parsed_locale.to_sym) ? parsed_locale  : nil
+  end
+
+
+  private
+
+  def default_model_validation_failure_response(e)
+    respond_to do |format|
+      format.html {
+        flash.now[:error] = "There was a problem creating the item."
+        render :action => "new"
+      }
+      # Render out the validation failed message with a
+      # 403 status code.
+      format.js { render :text => e.message, :status => 403 }
+    end
   end
 end

@@ -1,0 +1,20 @@
+<% content_for :nav do %>
+  <h1><%= link_to 'Home', root_path %> &raquo; <%= link_to 'Samples', samples_path %> &raquo; New</h1>
+<% end %>
+<div id="error_messages"></div>
+<% remote_form_for @site, :html => {:id => 'site_form'}, :success => "$('site_form').hide();$('sample_form').show();" do |f| %>
+  <header><h1>Step 1</h1><h2>Choose a site</h2></header>
+  <%= render :partial => '/sites/fields', :locals => {:f => f} %>
+  <%= f.submit 'Continue to step 2'  %>
+<% end %>
+<% remote_form_for @sample, :html => {:id => 'sample_form', :style => 'display:none;'}, :success => "$('sample_form').hide();$('reference_form').show();" do |f| %>
+  <header><h1>Step 2</h1><h2>Enter sample data</h2></header>
+  <%= render :partial => '/samples/fields', :locals => {:f => f} %>
+  <%= f.submit 'Continue to step 3'  %>
+<% end %>
+<% remote_form_for @sample, :html => {:id => 'reference_form', :style => 'display:none;'}, :success => "$('reference_form').hide();$('sample_created_message').show();" do |f| %>
+  <header><h1>Step 3</h1><h2>Provide References</h2></header>
+  <%= render :partial => '/references/fields', :locals => {:f => f} %>
+  <%= f.submit 'Complete process'  %>
+<% end %>
+<div id="sample_created_message" style="display:none">Sample has been saved!</div>

@@ -1,6 +1,9 @@
 <% content_for :nav do %>
   <h1><%= link_to 'Home', root_path %> &raquo; Samples</h1>
 <% end %>
+<% content_for :menu do %>
+  <%= link_to 'New Sample', new_sample_path %>
+<% end %>
 <p>All samples are listed here.</p>
 <table>
   <thead>
