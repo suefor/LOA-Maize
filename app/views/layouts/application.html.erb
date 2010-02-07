@@ -1,6 +1,11 @@
-<html>
-  <title>LOA Maize</title>
-  <body>
-    <%= yield %>
-  </body>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+   <title>LOA Maize Project</title>
+ </head>
+ <body>
+   <header><%= yield :header %></header>
+   <nav><%= yield :nav %></nav>
+   <%= yield %>
+   <footer><%= yield :footer %></footer>
+ </body>
 </html>
