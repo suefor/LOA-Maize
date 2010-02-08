@@ -40,4 +40,5 @@ Rails::Initializer.run do |config|
   config.gem 'resource_controller'
   config.gem 'clearance'
   config.gem 'formtastic'
+  config.gem 'validation_reflection'
 end
