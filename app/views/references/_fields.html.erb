@@ -1,13 +1,4 @@
-<fieldset>
-  <legend>References</legend>
-  <h3>Add References to this sample. Type a publication name and click 'add reference'.</h3>
-  Note: After you save your record, you can edit the information about each Publication in the 'Publications' section
-  <% fields_for :reference do |r| %>
-    <ol>
-      <%= form_field(r, :text_field, :publication_name, 'Publication Name') %>
-      <%= form_field(r, :text_area, :page, 'Reference (page number, range, etc.)') %>
-    </ol>
-    <%= button_to_function 'Add Reference', '' %>
-    <hr/>
-  <% end %>
-</fieldset>
+<% form.inputs :name => "Basic" do %>
+  <%= form.input :publication_id %>
+  <%= form.input :page, :label => 'Reference (page number, range, etc.)', :hint => 'pp 25:60' %>
+<% end %>

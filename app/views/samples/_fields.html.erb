@@ -1,14 +1,9 @@
-<fieldset>
-  <legend>Sample #<%= f.object.id %></legend>
-  <h3>Edit information about this sample</h3>
-  <ol>
-    <%= f.hidden_field(:site_id) %>
-    <%= form_field(f, :text_field, :lab_number, 'Lab Number') %>
-    <%= form_field(f, :text_field, :radiocarbon_age_bp, 'Radiocarbon Age Before Present') %>
-    <%= form_field(f, :text_field, :std_dev, 'Standard Deviation') %>
-    <%= form_field(f, :text_field, :lower_cal_date, 'Lower Calibrated Date') %>
-    <%= form_field(f, :text_field, :median_cal_date, 'Median Calibrated Date') %>
-    <%= form_field(f, :text_field, :upper_cal_date, 'Upper Calibrated Date') %>
-    <%= form_field(f, :text_area, :description, 'Description') %>
-  </ol>
-</fieldset>
+<% form.inputs :name => "Basic" do %>
+  <%= form.input :lab_number %>
+  <%= form.input :radiocarbon_age_bp, :label => 'Radiocarbon Age Before Present' %>
+  <%= form.input :std_dev, :label => 'Standard Deviation' %>
+  <%= form.input :lower_cal_date, :label => 'Lower Calibrated Date' %>
+  <%= form.input :median_cal_date, :label => 'Median Calibrated Date' %>
+  <%= form.input :upper_cal_date, :label => 'Upper Calibrated Date' %>
+  <%= form.input :description, :as => :text %>
+<% end %>
