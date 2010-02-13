@@ -2,19 +2,18 @@
   <head>
     <title>LOA Maize Project</title>
     <%= javascripts_frameworks %>
-    <%= stylesheet_link_tag('formtastic', 'formtastic_changes', 'application', :cache => 'style') %>
+    <%= stylesheet_link_tag('formtastic', 'formtastic_changes', 'application', 'html5_elements', :cache => 'style') %>
   </head>
   <body>
     <header>
       <%= yield :header %>
-      <nav><%= yield :nav %></nav>
+      <nav><%= yield :menu %></nav>
     </header>
     <div id="flash">
       <% flash.each do |key, value| -%>
         <div id="flash_<%= key %>"><%=h value %></div>
       <% end -%>
     </div>
-    <nav><%= yield :menu %></nav>
     <%= yield %>
     <footer><%= yield :footer %></footer>
   </body>

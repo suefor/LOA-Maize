@@ -1,0 +1,2 @@
+module SampleWizardHelper
+end

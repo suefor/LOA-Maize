@@ -1,24 +1,8 @@
-<% content_for :nav do %>
+<% content_for :header do %>
   <h1><%= link_to 'Home', root_path %> &raquo; <%= link_to 'Samples', samples_path %> &raquo; New</h1>
 <% end %>
-<div id="error_messages"></div>
-<% semantic_remote_form_for @site, :html => {:id => 'site_form'}, :success => "$('site_form').hide();$('sample_form').show();" do |f| %>
-  <header><h1>Step 1</h1><h2>Choose a site</h2></header>
-  <%= render :partial => '/sites/fields', :locals => {:form => f} %>
-  <%= f.submit 'Continue to step 2'  %>
-<% end %>
-<% semantic_remote_form_for @sample, :html => {:id => 'sample_form', :style => 'display:none;'}, :success => "$('sample_form').hide();$('reference_form').show();" do |f| %>
-  <header><h1>Step 2</h1><h2>Enter sample data</h2></header>
+<% semantic_form_for @sample do |f| %>
+  <header><h1>Enter sample data</h1></header>
   <%= render :partial => '/samples/fields', :locals => {:form => f} %>
-  <%= f.submit 'Continue to step 3'  %>
+  <%= f.submit %>
 <% end %>
-<% semantic_remote_form_for @reference, :html => {:id => 'reference_form', :style => 'display:none;'}, :success => "$('reference_form').hide();$('sample_created_message').show();" do |f| %>
-  <header><h1>Step 3</h1><h2>Provide References</h2></header>
-  <div id="references">
-    <%= link_to_function("Add Reference") do |page|
-      page.insert_html :bottom, :references, :partial => '/references/fields', :locals => {:form => f}
-    end %>
-  </div>
-  <%= f.submit 'Complete process'  %>
-<% end %>
-<div id="sample_created_message" style="display:none">Sample has been saved!</div>

@@ -1,5 +1,16 @@
-<% content_for :nav do %>
-  <h1><%= link_to 'Home', root_path %> &raquo; <%= link_to 'Sites', sites_path %> &raquo; Edit</h1>
+<% content_for :header do %>
+  <h1>Editing Site "<%= @site.name%>"</h1>
 <% end %>
-<%= render :partial => 'form', :locals => {:site => @site} %>
-<%= link_to "Back", sites_path %>
+<% content_for :menu do %>
+  <%= link_to 'Home', root_path %> &raquo; <%= link_to 'Sites', sites_path %> &raquo; Edit
+<% end %>
+<section
+  <header><h2>Site Info</h2></header>
+    <%= render :partial => 'form', :locals => {:site => @site} %>
+</section>
+<section>
+  <%= render :partial => 'site_samples', :locals => {:site => @site} %>
+</section>
+<footer>
+  <nav><%= link_to "Back", sites_path %></nav>
+</footer>

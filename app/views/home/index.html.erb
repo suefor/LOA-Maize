@@ -1,5 +1,10 @@
-<h1>Home</h1>
-<p><%= t :welcome %></p>
-
-<%= link_to 'Add a New Sample', samples_path %>
-<%= link_to 'Sign Out', sign_out_path %>
+<% content_for :header do %>
+  <h1>Home</h1>
+  <p><%= t :welcome %></p>
+<% end %>
+<% content_for :menu do %>
+  <%= link_to 'Manage Sites', sites_path %>
+  <%= link_to 'Manage Samples', samples_path %>
+  <% # REMOVE THE STYLE ATTRIBUTE WHEN WE SWITCH TO SASS %>
+  <%= link_to 'Sign Out', sign_out_path, :id => 'sign_out', :style => 'float:right;'%>
+<% end %>

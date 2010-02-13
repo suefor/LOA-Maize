@@ -1,4 +1,5 @@
-<% form.inputs :name => "Basic" do %>
+<% form.inputs do %>
+  <%= form.input :site_id, :as => :hidden %>
   <%= form.input :lab_number %>
   <%= form.input :radiocarbon_age_bp, :label => 'Radiocarbon Age Before Present' %>
   <%= form.input :std_dev, :label => 'Standard Deviation' %>

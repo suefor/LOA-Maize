@@ -1,0 +1,14 @@
+<header>
+  <h2>Samples from this Site</h2>
+  <nav>
+    <%= link_to_function('Add Sample', "Effect.toggle('new_sample_form', 'blind')") %>
+  </nav>
+</header>
+<%= render site.samples %>
+<div id="new_sample_form" style="display: none;">
+  <h1>New Sample</h1>
+  <% semantic_form_for @sample do |f| %>
+    <%= render :partial => '/samples/fields', :locals => {:form => f} %>
+    <%= f.submit %>
+  <% end %>
+</div>
