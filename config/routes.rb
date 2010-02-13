@@ -12,6 +12,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :samples
   map.resources :sites
 
+  map.resource :maps, :only => :show
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

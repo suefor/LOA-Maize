@@ -1,0 +1,23 @@
+<% content_for :js do %>
+  <!-- maizemap.heroku.com key: ABQIAAAA-CI1oGljFNfFNNXkrR75uhRI3qGmFO9DQlXvkay-2FZnplr8XhS9uK2jQD03kOdhYTOg23a88N2k0g -->
+  <!-- maizemap.anth.ubc.ca key: ABQIAAAA-CI1oGljFNfFNNXkrR75uhTlnL-W_WSRfDEPqTgSSJbYwsSIqhQ5FCFk_uU1d43kcnz_aVUbA4R4UQ -->
+  <script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAA-CI1oGljFNfFNNXkrR75uhRI3qGmFO9DQlXvkay-2FZnplr8XhS9uK2jQD03kOdhYTOg23a88N2k0g"></script>
+  <%= javascript_include_tag('map') %>
+<% end %>
+
+<table id="maize_map_display_interface">
+  <tbody>
+    <tr>
+      <td id="selector_map_container" class="container">
+        <div id="selector_map"></div>
+      </td>
+      <td id="maize_map_divider"></td>
+      <td id="earth_display_container" class="container">
+        <div id="earth_display"></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div id="map_controls_container" class="container">
+  Controls
+</div>

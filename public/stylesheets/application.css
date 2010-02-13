@@ -1,0 +1,36 @@
+#maize_map_display_interface {
+    height: 600px;
+    width: 100%;
+}
+
+#selector_map_container {
+    width: 50%;
+}
+
+#selector_map {
+    height: 100%;
+    width: 100%;
+}
+
+#maize_map_divider {
+    padding: 0 5px 0 5px;
+}
+
+#earth_display_container {
+    width: 50%;
+}
+
+#earth_display {
+    height: 100%;
+    width: 100%;
+}
+
+#map_controls_container {
+    height: 85px;
+    margin: 10px 1px 0 1px;
+    padding: 5px;
+}
+
+.container {
+    border: 1px solid #999999;
+}
