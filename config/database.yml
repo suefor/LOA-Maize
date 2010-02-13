@@ -60,7 +60,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: loa_production
+  database: loa_development
   pool: 5
   username: postgres
   password: admin
