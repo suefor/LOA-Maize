@@ -27,11 +27,42 @@ function initCB(instance) {
     display_earth.getLayerRoot().enableLayerById(display_earth.LAYER_BORDERS, true);
     display_earth.getLayerRoot().enableLayerById(display_earth.LAYER_ROADS, true);
 
+    loadMarkers();
     addObservers();
     fetchKML();
 }
 
 function failureCB(errorCode) {
+}
+
+function loadMarkers() {
+    // AJAX JSON File from the server
+    // Load markers onto map
+    new Ajax.Request('/sites.json', {
+        method: 'get',
+        onSuccess: function(response) {
+            response.responseJSON.each(function(object) {
+                new google.maps.Marker({
+                    position: new google.maps.LatLng(object.site.lat, object.site.lng),
+                    map: selector_map,
+                    title: object.site.name
+                });
+
+                // Create the placemark.
+                var placemark = display_earth.createPlacemark('');
+                placemark.setName(object.site.name);
+
+                // Set the placemark's location.
+                var point = display_earth.createPoint('');
+                point.setLatitude(object.site.lat);
+                point.setLongitude(object.site.lng);
+                placemark.setGeometry(point);
+
+                // Add the placemark to Earth.
+                display_earth.getFeatures().appendChild(placemark);
+            });
+        }
+    });
 }
 
 function addObservers() {
@@ -42,6 +73,8 @@ function addObservers() {
         // Set new latitude and longitude values
         lookAt.setLatitude(selector_map.getCenter().lat());
         lookAt.setLongitude(selector_map.getCenter().lng());
+        lookAt.setTilt(0);
+        lookAt.setHeading(0);
 
         // Update the view in Google Earth
         display_earth.getView().setAbstractView(lookAt);
