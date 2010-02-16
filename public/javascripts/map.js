@@ -7,7 +7,7 @@ google.setOnLoadCallback(initMaps);
 function initMaps() {
     google.earth.createInstance('earth_display', initCB, failureCB);
     
-    var latlng = new google.maps.LatLng(-12.5, -77.3);
+    var latlng = new google.maps.LatLng(-12.0, -77.3);
     var myOptions = {
         zoom: 8,
         center: latlng,
