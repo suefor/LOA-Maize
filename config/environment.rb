@@ -42,3 +42,5 @@ Rails::Initializer.run do |config|
   config.gem 'formtastic'
   config.gem 'validation_reflection'
 end
+
+APP_CONFIG = {:english_website_url => 'http://en.loa-maize.dev:3000', :spanish_website_url => 'http://es.loa-maize.dev:3000'}
