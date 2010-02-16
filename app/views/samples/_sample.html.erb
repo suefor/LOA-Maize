@@ -1,11 +1,11 @@
-<% content_tag :div, :class => 'sample', :id => dom_id(sample) do %>
-  <span><%= sample.lab_number %></span>
-  <span><%= sample.site.name %></span>
-  <span><%= sample.radiocarbon_age_bp %></span>
-  <span><%= sample.std_dev %></span>
-  <span><%= sample.lower_cal_date %></span>
-  <span><%= sample.median_cal_date %></span>
-  <span><%= sample.upper_cal_date %></span>
-  <span><%= sample.description %></span>
-  <span><%= link_to 'Edit', edit_sample_path(sample) %> | <%= link_to 'Delete', sample_path(sample), :method => :destroy, :confirm => "Are you sure you want to delete record #{sample.id}?" %></span>
-<% end %>
+<tr id="<%= dom_id(sample) %>" class="sample">
+  <td><%= sample.lab_number %></td>
+  <td><%= sample.site.name %></td>
+  <td><%= sample.radiocarbon_age_bp %></td>
+  <td><%= sample.std_dev %></td>
+  <td><%= sample.lower_cal_date %></td>
+  <td><%= sample.median_cal_date %></td>
+  <td><%= sample.upper_cal_date %></td>
+  <td><%= sample.description %></td>
+  <td><%= link_to 'Edit', edit_sample_path(sample) %> | <%= link_to 'Delete', sample_path(sample), :method => :delete, :confirm => "Are you sure you want to delete record #{sample.id}?" %></td>
+</tr>
