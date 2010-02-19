@@ -5,4 +5,9 @@ nav {
     margin: 1em 0;
     padding: 0.5em;
     background: #F7F7F7;
+    display: block;
+}
+section {
+    margin: 0 1em;
+    display: block;
 }

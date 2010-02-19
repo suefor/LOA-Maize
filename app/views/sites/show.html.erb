@@ -1,2 +1,21 @@
-<h1>Sites#show</h1>
-<p>Find me in app/views/sites/show.html.erb</p>
+<% content_for :header do %>
+  <h1><%= @site.name%></h1>
+<% end %>
+<% content_for :nav do %>
+  <%= link_to 'Home', root_path %> &raquo; <%= link_to 'Sites', sites_path %> &raquo; <%= @site.name %>
+<% end %>
+<section
+  <header><h2>Site Info</h2></header>
+  <ul>
+    <li>Name: <%= @site.name %></li>
+    <li>Latitude: <%= @site.lat %></li>
+    <li>Longitude: <%= @site.lng %></li>
+    <li>Location name: <%= @site.location_name %></li>
+  </ul>
+</section>
+<section>
+  <%= render :partial => 'site_samples', :locals => {:site => @site} %>
+</section>
+<footer>
+  <nav><%= link_to "Back", sites_path %></nav>
+</footer>

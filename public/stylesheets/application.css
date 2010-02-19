@@ -34,3 +34,11 @@
 .container {
     border: 1px solid #999999;
 }
+
+/* @group Basic */
+table{
+	width: 100%;
+}
+
+/* @end */
+

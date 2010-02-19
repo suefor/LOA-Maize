@@ -1,16 +1,30 @@
-<h1><%= link_to 'Home', root_path %> &raquo; <%= link_to 'Samples', samples_path %> &raquo; <%= @sample.id %></h1>
-<%= link_to 'Edit this record', edit_sample_path(@sample) %>
-<h1>Sample #<%= @sample.id %></h1>
-<h2>Data</h2>
-<ol>
-  <%= sample_field(@sample, :site, 'Site Name') %>
-  <%= sample_field(@sample, :lab_number, 'Lab Number') %>
-  <%= sample_field(@sample, :radiocarbon_age_bp, 'Radiocarbon Age Before Present') %>
-  <%= sample_field(@sample, :std_dev, 'Standard Deviation') %>
-  <%= sample_field(@sample, :lower_cal_date, 'Lower Calibrated Date') %>
-  <%= sample_field(@sample, :median_cal_date, 'Median Calibrated Date') %>
-  <%= sample_field(@sample, :upper_cal_date, 'Upper Calibrated Date') %>
-  <%= sample_field(@sample, :description, 'Description') %>
-</ol>
-<h2>References</h2>
-<%= render @sample.references %>
+<% content_for :header do %>
+  <h1>Sample #<%= @sample.id %></h1>
+<% end %>
+<% content_for :nav do %>
+  <%= link_to 'Home', root_path %> &raquo; <%= link_to 'Samples', samples_path %> &raquo; <%= @sample.id %>
+<% end %>
+<% content_for :menu do %>
+  <%= link_to 'View Site', site_path(@sample.site) %>
+  <%= link_to 'Edit this record', edit_sample_path(@sample) %>
+<% end %>
+<section>
+  <h2>Information</h2>
+  <ol>
+    <%= sample_field(@sample, :site, 'Site Name') %>
+    <%= sample_field(@sample, :lab_number, 'Lab Number') %>
+    <%= sample_field(@sample, :radiocarbon_age_bp, 'Radiocarbon Age Before Present') %>
+    <%= sample_field(@sample, :std_dev, 'Standard Deviation') %>
+    <%= sample_field(@sample, :lower_cal_date, 'Lower Calibrated Date') %>
+    <%= sample_field(@sample, :median_cal_date, 'Median Calibrated Date') %>
+    <%= sample_field(@sample, :upper_cal_date, 'Upper Calibrated Date') %>
+    <%= sample_field(@sample, :description, 'Description') %>
+  </ol>
+</section>
+<section>
+  <header><h2>References</h2></header>
+  <%= render @sample.references %>
+</section>
+<footer>
+  <nav><%= link_to "Back", sites_path %></nav>
+</footer>

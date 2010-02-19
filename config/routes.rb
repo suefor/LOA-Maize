@@ -10,7 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :references
   
   map.resources :samples
-  map.resources :sites
+  map.resources :sites, :has_many => :samples
 
   map.resource :maps, :only => :show
 

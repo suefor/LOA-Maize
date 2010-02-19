@@ -1,8 +1,14 @@
+<% content_for :nav do %>
+<% if params[:site_id] %>
+  <%= link_to 'Home', root_path %> &raquo; <%= link_to 'Sites', sites_path %> &raquo; <%= link_to @sample.site.name, @sample.site %> &raquo; New Sample
+<% else %>
+  <%= link_to 'Home', root_path %> &raquo; <%= link_to 'Samples', samples_path %> &raquo; New
+  <% end %>
+<% end %>
 <% content_for :header do %>
-  <h1><%= link_to 'Home', root_path %> &raquo; <%= link_to 'Samples', samples_path %> &raquo; New</h1>
+  <h1>Add sample to <%= @sample.site.name %></h1>
 <% end %>
 <% semantic_form_for @sample do |f| %>
-  <header><h1>Enter sample data</h1></header>
   <%= render :partial => '/samples/fields', :locals => {:form => f} %>
   <%= f.submit %>
 <% end %>
