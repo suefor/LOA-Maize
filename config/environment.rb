@@ -41,4 +41,9 @@ Rails::Initializer.run do |config|
   config.gem 'clearance'
   config.gem 'formtastic'
   config.gem 'validation_reflection'
+  config.gem 'subdomain-fu'
 end
+
+SubdomainFu.tld_sizes = {:development => 1,
+                           :test => 0,
+                           :production => 2}

@@ -2,3 +2,4 @@ resource_controller
 clearance
 formtastic
 validation_reflection
+subdomain-fu

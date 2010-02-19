@@ -1,5 +1,5 @@
 class SamplesController < ApplicationController
-  before_filter :authenticate
+  before_filter :authenticate, :only => [:new, :create, :edit, :update, :destroy]
   resource_controller
 
   new_action.before do
